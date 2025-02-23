@@ -2,7 +2,7 @@
 
 ### clone the code:-
 
-    git clone 
+    git clone https://github.com/sanjaykannappan/bookstore.git
 
 ### Pytest Steps:-
 
