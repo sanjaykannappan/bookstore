@@ -4,8 +4,6 @@
 
     2. run the below command :
 
-        cd bookstore
-
         pytest --cov=..\bookstore unitests 
 
         If HTML report need run below
@@ -13,19 +11,25 @@
         pytest --cov=..\bookstore unitests --cov-report=html
 
 
-## Unit test coverage report from my local setup
+# Implementation Logic.
 
-            Name                        Stmts   Miss  Cover
-        -----------------------------------------------
-        bookmgmt.py                    42      3    93%
-        constants.py                    3      0   100%
-        database.py                    27      4    85%
-        main.py                        33     16    52%
-        middleware.py                  22      4    82%
-        unitests\__init__.py            0      0   100%
-        unitests\bookmgmt_test.py     100      5    95%
-        unitests\database_test.py      19      0   100%
-        utils.py                       11      1    91%
-        -----------------------------------------------
-        TOTAL                         257     33    87%
+Database Test:
+    1. In this test we have created the model values and assertion for the models which are defined in the database.py file
+
+Bookmgmt Test:
+
+    1.  Here we defined the mockdb as all the book releated create, get, update and delete needs database operation.
+
+    2. We mocked the jwt token as all the methods in bookmgmt requires authentication "dependencies=[Depends(JWTBearer())"
+
+    3. We started writing unittest for each method from bookmgmt
+        - create_book
+        - get_all_books
+        - get_book_by_id
+        - update_book
+        - delete_book
+
+    4. We tried to invoke all the functions of bookmgmt.py from our unnitest and wherever DB operations are expected we used the mockdb for create update, get and delete.
+
+    5. Assert compaison is done with actual and expected values. 
 
